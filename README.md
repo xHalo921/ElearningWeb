@@ -1,6 +1,6 @@
 # ElearningWeb
 
-## 数据结构
+## 数据
 >\*表示主键
 ## 学生 Student
 |       | SNo | SPassword | SClass | SName | Choice | Email | Phone 
@@ -10,12 +10,12 @@
 |sql    |\*int|  varchar  |int     |varchar|int     |varchar|varchar
 > 选择项 0表示未选择 负数表示已选择但教师未确定，正数为选中班级（eg:选1班 0->-1教师确认后 -1->1）
 
-### 成绩表
-| SNo | SName | SClass |Ugrades|Mgrades|Fgrade|Pgrades|Overgrades|
-|:---:|:-----:|:------:|:-----:|:-----:|:----:|:-----:|:--------:|
-|学号 |姓名    |班级    |平时   |期中    |期末  |实践    |总成绩    |
-| int |String |int     |int    |int    |int   |int    |int       |
-|\*int|varchar|int     |int    |int    |int   |int    |int       |
+### 成绩 Grade
+|       | SNo | SName | SClass |Ugrade|Mgrade|Fgrade|Pgrade|Overgrade|
+|:-----:|:---:|:-----:|:------:|:-----:|:-----:|:----:|:-----:|:--------:|
+|说明    |学号 |姓名   |班级     |平时   |期中   |期末  |实践    | 总成绩    |
+|java   | int |String |int     |int    |int    |int   |int    |int       |
+|sql    |\*int|varchar|int     |int    |int    |int   |int    |int       |
 
 ### 教师 Teacher
 |       | TNo | TPassword | TClass | TName |  Email | Phone |
