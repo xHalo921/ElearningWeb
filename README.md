@@ -1,6 +1,6 @@
 # ElearningWeb
 
-##数据结构
+## 数据结构
 >\*表示主键
 ## 学生 Student
 |       | SNo | SPassword | SClass | SName | Choice | Email | Phone 
