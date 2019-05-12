@@ -1,7 +1,7 @@
 # ElearningWeb
 
 ## 数据
->\*表示SQL主键
+>**加粗**表示SQL主键
 ### 学生 Student
 |       | SNo | SPassword | SClass | SName | Choice | Email | Phone 
 |:-----:|:---:|:---------:|:------:|:-----:|:------:|:-----:|:-----:
