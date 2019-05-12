@@ -2,13 +2,13 @@
 
 ## 数据
 >\*表示主键
-## 学生 Student
+### 学生 Student
 |       | SNo | SPassword | SClass | SName | Choice | Email | Phone 
 |:-----:|:---:|:---------:|:------:|:-----:|:------:|:-----:|:-----:
 |说明    |学号 | 密码      |班级    |姓名    |选择    |邮箱   |电话    
 |java   | int |  String   |int     |String |int     |String |String 
 |sql    |\*int|  varchar  |int     |varchar|int     |varchar|varchar
-> 选择项 0表示未选择 负数表示已选择但教师未确定，正数为选中班级（eg:选1班 0->-1教师确认后 -1->1）
+> 选择项 0表示未选择 负数表示已选择但教师未确定，正数为选中班级（eg.:选1班 0变-1,教师确认后 -1变1）
 
 ### 成绩 Grade
 |       | SNo | SName | SClass |Ugrade|Mgrade|Fgrade|Pgrade|Overgrade|
@@ -23,3 +23,13 @@
 |说明    |工号 |  密码     |教学班级 |姓名    |邮箱    |电话   |
 |java   | int |  String   | int    |String | String |String |
 |sql    |\*int|  varchar  | int    |varchar| varchar|varchar|
+
+## 主要网页
+### 游客网页（导航页）
+包括课程介绍、课程内容、教学大纲、教学实践、教学团队、行业信息、下载区、成绩查询、留言板、网上测试功能，包含指向“学生登陆”，“教师登陆”链接
+### 学生网页
++ 登陆/注册界面
++ 登陆后的“选课”、“选课结果查看”界面，附带“退出登陆”功能
+### 教师网页
++ 登陆/注册界面
++ 登陆后的网页，包含“选课管理”、“成绩导入”、“成绩分析”、“成绩预警”子功能，附带“退出登陆”功能
