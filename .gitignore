@@ -2,3 +2,5 @@
 !*.java
 !*.jsp
 !*.sql
+out/
+
