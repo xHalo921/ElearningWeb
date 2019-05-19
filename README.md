@@ -3,11 +3,11 @@
 ## 数据
 >**加粗**表示SQL主键
 ### 学生 Student
-|       | sNo | sPassword | sClass | sName | choice | sEmail|sPhone 
-|:-----:|:---:|:---------:|:------:|:-----:|:------:|:-----:|:-----:
-|说明    |学号 | 密码      |班级    |姓名    |选择    |邮箱   |电话    
-|java   | int |  String   |int     |String |int     |String |String 
-|sql    |**int**| varchar |int     |varchar|int     |varchar|varchar
+|       | sNo | sPassword | sClass | sName | choice | sEmail|sPhone |notice |
+|:-----:|:---:|:---------:|:------:|:-----:|:------:|:-----:|:-----:|:-----:|
+|说明    |学号 | 密码      |班级    |姓名    |选择    |邮箱   |电话     |通知    |
+|java   | int |  String   |int     |String |int     |String |String |String |
+|sql    |**int**| varchar |int     |varchar|int     |varchar|varchar|varchar|
 > 选择项 0表示未选择 负数表示已选择但教师未确定，正数为选中班级（eg.:选1班 0变-1,教师确认后 -1变1）
 
 ### 成绩 Grade
