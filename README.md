@@ -23,6 +23,7 @@
 |说明    |工号 |  密码     |教学班级 |姓名    |邮箱    |电话   |
 |java   | int |  String   | int    |String | String |String |
 |sql    |**int**| varchar | int    |varchar| varchar|varchar|
+> 教师的tClass对应的是学生的choice，而不是sClass
 
 > 视情况可能需要增加下载、评论数据库
 
