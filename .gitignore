@@ -2,5 +2,6 @@
 !*.java
 !*.jsp
 !*.sql
+!web.xml
 out/
 
