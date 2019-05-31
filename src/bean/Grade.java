@@ -1,5 +1,4 @@
 package bean;
-
 public class Grade {
     private int sNo;
     private String sName;
