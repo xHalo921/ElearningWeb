@@ -9,6 +9,7 @@
 !*.gif
 !*.jpg
 !web.xml
+!*.jar
 !/WebContent
 out/
 
