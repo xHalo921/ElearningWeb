@@ -8,6 +8,7 @@
 !*.png
 !*.gif
 !*.jpg
+!web.xml
 !/WebContent
 out/
 
