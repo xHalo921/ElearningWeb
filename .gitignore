@@ -3,6 +3,7 @@
 !*.jsp
 !*.sql
 !web.xml
+!WebContent/
 out/
 
 /build/
