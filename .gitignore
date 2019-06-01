@@ -5,7 +5,7 @@
 !web.xml
 !*.css
 !*.js
-!/WebContent/
+!/WebContent
 out/
 
 /build/
