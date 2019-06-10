@@ -4,7 +4,7 @@
 1. 注册github账号，将用户名发给我，之后我会发给你一个邀请加入项目的链接，同意
 2. 下载github desktop客户端，登陆，File->Clone repository,选择ElearningWeb项目，**路径选择eclipse的workspace**
 3. Eclipse新建项目（若为MyEclipse，注意可能在新建项目时需要修改web目录的WebRoot改为WebContent，若为Idea，直接找我），项目名为ElearningWeb，之后若配置正确可直接运行。
-4. 将自己写的代码加入项目，若第二步Clone repository时选择的路径与Eclipse新建项目路径一致，那么在eclipse中的修改会被github desktop记录，github desktop左下角Commit to master，再使用右上角pull即可将代码上传至网络。
+4. 将自己写的代码加入项目，若第二步Clone repository时选择的路径与Eclipse新建项目路径一致，那么在eclipse中的修改会被github desktop记录，github desktop左下角Commit to master，再使用右上角push即可将代码上传至网络。
 5. 同理，当其他人更改项目时，github desktop右上角会出现Fetch标识，点击即可获得最新版本的项目。
 
 

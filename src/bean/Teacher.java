@@ -55,4 +55,13 @@ public class Teacher {
     public void settPhone(String tPhone) {
         this.tPhone = tPhone;
     }
+
+    public void setTeacher(int tNo,String tPassword,int tClass,String tName,String tEmail,String tPhone){
+        this.tNo = tNo;
+        this.tPassword = tPassword;
+        this.tClass = tClass;
+        this.tName = tName;
+        this.tEmail = tEmail;
+        this.tPhone = tPhone;
+    }
 }

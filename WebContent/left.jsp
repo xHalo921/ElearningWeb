@@ -46,7 +46,7 @@
 		   	<span><img src="images/leftico02.png" /></span>教学团队
 		 </div>
 		    <ul class="menuson">
-		        <li><cite></cite><a href="#">教师信息</a><i></i></li>
+		        <li><cite></cite><a href="teacher.jsp" target="rightFrame">教师信息</a><i></i></li>
 		        <li><cite></cite><a href="#">团队简介</a><i></i></li>
 		    </ul>     
 	    </dd> 

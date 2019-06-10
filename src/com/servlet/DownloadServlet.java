@@ -20,75 +20,75 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DownloadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DownloadServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public DownloadServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	    // µÃµ½ÒªÏÂÔØµÄÎÄ¼þÃû
-        String fileName = request.getParameter("filename"); 	
-       //fileName = new String(fileName.getBytes("iso8859-1"), "UTF-8");
-        // ÉÏ´«µÄÎÄ¼þ¶¼ÊÇ±£´æÔÚ/WEB-INF/uploadÄ¿Â¼ÏÂµÄ×ÓÄ¿Â¼µ±ÖÐ
-        String fileSaveRootPath = this.getServletContext().getRealPath("/WEB-INF/upload");
-        // µÃµ½ÒªÏÂÔØµÄÎÄ¼þ
-        File file = new File(fileSaveRootPath + "\\" + fileName);
-        // Èç¹ûÎÄ¼þ²»´æÔÚ
-        if (!file.exists()) {
-            request.setAttribute("message", "ÄúÒªÏÂÔØµÄ×ÊÔ´ÒÑ±»É¾³ý£¡£¡");
-            request.getRequestDispatcher("/message.jsp").forward(request, response);
-            return;
-        }
-        // ´¦ÀíÎÄ¼þÃû
-        String realname = fileName.substring(fileName.indexOf("_") + 1);
-        // ÉèÖÃÏìÓ¦Í·£¬¿ØÖÆä¯ÀÀÆ÷ÏÂÔØ¸ÃÎÄ¼þ
-        response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(realname, "UTF-8"));
-        // ¶ÁÈ¡ÒªÏÂÔØµÄÎÄ¼þ£¬±£´æµ½ÎÄ¼þÊäÈëÁ÷
-        FileInputStream in = new FileInputStream(fileSaveRootPath + "\\" + fileName);
-        // ´´½¨Êä³öÁ÷
-        OutputStream out = response.getOutputStream();
-        // ´´½¨»º³åÇø
-        byte buffer[] = new byte[1024];
-        int len = 0;
-        // Ñ­»·½«ÊäÈëÁ÷ÖÐµÄÄÚÈÝ¶ÁÈ¡µ½»º³åÇøµ±ÖÐ
-        while ((len = in.read(buffer)) > 0) {
-            // Êä³ö»º³åÇøµÄÄÚÈÝµ½ä¯ÀÀÆ÷£¬ÊµÏÖÎÄ¼þÏÂÔØ
-            out.write(buffer, 0, len);
-        }
-        // ¹Ø±ÕÎÄ¼þÊäÈëÁ÷
-        in.close();
-        // ¹Ø±ÕÊä³öÁ÷
-        out.close();
+		// å¾—åˆ°è¦ä¸‹è½½çš„æ–‡ä»¶å
+		String fileName = request.getParameter("filename");
+		//fileName = new String(fileName.getBytes("iso8859-1"), "UTF-8");
+		// ä¸Šä¼ çš„æ–‡ä»¶éƒ½æ˜¯ä¿å­˜åœ¨/WEB-INF/uploadç›®å½•ä¸‹çš„å­ç›®å½•å½“ä¸­
+		String fileSaveRootPath = this.getServletContext().getRealPath("/WEB-INF/upload");
+		// å¾—åˆ°è¦ä¸‹è½½çš„æ–‡ä»¶
+		File file = new File(fileSaveRootPath + "\\" + fileName);
+		// å¦‚æžœæ–‡ä»¶ä¸å­˜åœ¨
+		if (!file.exists()) {
+			request.setAttribute("message", "æ‚¨è¦ä¸‹è½½çš„èµ„æºå·²è¢«åˆ é™¤ï¼ï¼");
+			request.getRequestDispatcher("/message.jsp").forward(request, response);
+			return;
+		}
+		// å¤„ç†æ–‡ä»¶å
+		String realname = fileName.substring(fileName.indexOf("_") + 1);
+		// è®¾ç½®å“åº”å¤´ï¼ŒæŽ§åˆ¶æµè§ˆå™¨ä¸‹è½½è¯¥æ–‡ä»¶
+		response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(realname, "UTF-8"));
+		// è¯»å–è¦ä¸‹è½½çš„æ–‡ä»¶ï¼Œä¿å­˜åˆ°æ–‡ä»¶è¾“å…¥æµ
+		FileInputStream in = new FileInputStream(fileSaveRootPath + "\\" + fileName);
+		// åˆ›å»ºè¾“å‡ºæµ
+		OutputStream out = response.getOutputStream();
+		// åˆ›å»ºç¼“å†²åŒº
+		byte buffer[] = new byte[1024];
+		int len = 0;
+		// å¾ªçŽ¯å°†è¾“å…¥æµä¸­çš„å†…å®¹è¯»å–åˆ°ç¼“å†²åŒºå½“ä¸­
+		while ((len = in.read(buffer)) > 0) {
+			// è¾“å‡ºç¼“å†²åŒºçš„å†…å®¹åˆ°æµè§ˆå™¨ï¼Œå®žçŽ°æ–‡ä»¶ä¸‹è½½
+			out.write(buffer, 0, len);
+		}
+		// å…³é—­æ–‡ä»¶è¾“å…¥æµ
+		in.close();
+		// å…³é—­è¾“å‡ºæµ
+		out.close();
 
 	}
-	  /**
-	    * @Method: findFileSavePathByFileName
-	    * @Description: Í¨¹ýÎÄ¼þÃûºÍ´æ´¢ÉÏ´«ÎÄ¼þ¸ùÄ¿Â¼ÕÒ³öÒªÏÂÔØµÄÎÄ¼þµÄËùÔÚÂ·¾¶
-	    * @Anthor:¹Â°Á²ÔÀÇ
-	    * @param filename ÒªÏÂÔØµÄÎÄ¼þÃû
-	    * @param saveRootPath ÉÏ´«ÎÄ¼þ±£´æµÄ¸ùÄ¿Â¼£¬Ò²¾ÍÊÇ/WEB-INF/uploadÄ¿Â¼
-	    * @return ÒªÏÂÔØµÄÎÄ¼þµÄ´æ´¢Ä¿Â¼
-	    */ 
-	    public String findFileSavePathByFileName(String filename,String saveRootPath){
-	        int hashcode = filename.hashCode();
-	        int dir1 = hashcode&0xf;  //0--15
-	        int dir2 = (hashcode&0xf0)>>4;  //0-15
-	        String dir = saveRootPath + "\\" + dir1 + "\\" + dir2;  //upload\2\3  upload\3\5
-	        File file = new File(dir);
-	        if(!file.exists()){
-	            //´´½¨Ä¿Â¼
-	            file.mkdirs();
-	        }
-	        return dir;
-	    }
+	/**
+	 * @Method: findFileSavePathByFileName
+	 * @Description: é€šè¿‡æ–‡ä»¶åå’Œå­˜å‚¨ä¸Šä¼ æ–‡ä»¶æ ¹ç›®å½•æ‰¾å‡ºè¦ä¸‹è½½çš„æ–‡ä»¶çš„æ‰€åœ¨è·¯å¾„
+	 * @Anthor:å­¤å‚²è‹ç‹¼
+	 * @param filename è¦ä¸‹è½½çš„æ–‡ä»¶å
+	 * @param saveRootPath ä¸Šä¼ æ–‡ä»¶ä¿å­˜çš„æ ¹ç›®å½•ï¼Œä¹Ÿå°±æ˜¯/WEB-INF/uploadç›®å½•
+	 * @return è¦ä¸‹è½½çš„æ–‡ä»¶çš„å­˜å‚¨ç›®å½•
+	 */
+	public String findFileSavePathByFileName(String filename,String saveRootPath){
+		int hashcode = filename.hashCode();
+		int dir1 = hashcode&0xf;  //0--15
+		int dir2 = (hashcode&0xf0)>>4;  //0-15
+		String dir = saveRootPath + "\\" + dir1 + "\\" + dir2;  //upload\2\3  upload\3\5
+		File file = new File(dir);
+		if(!file.exists()){
+			//åˆ›å»ºç›®å½•
+			file.mkdirs();
+		}
+		return dir;
+	}
 
 
 	/**

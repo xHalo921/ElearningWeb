@@ -2,6 +2,7 @@ package bean;
 public class Grade {
     private int sNo;
     private String sName;
+    private int sClass;
     private int uGrade;
     private int mGrade;
     private int fGrade;
@@ -22,6 +23,14 @@ public class Grade {
 
     public void setsName(String sName) {
         this.sName = sName;
+    }
+
+    public int getsClass() {
+        return sClass;
+    }
+
+    public void setsClass(int sClass) {
+        this.sClass = sClass;
     }
 
     public int getuGrade() {
@@ -61,6 +70,17 @@ public class Grade {
     }
 
     public void setOverGrade(int overGrade) {
+        this.overGrade = overGrade;
+    }
+
+    public void setGrade(int sNo,String sName,int sClass,int uGrade,int mGrade,int fGrade,int pGrade,int overGrade){
+        this.sNo = sNo;
+        this.sName = sName;
+        this.sClass = sClass;
+        this.uGrade = uGrade;
+        this.mGrade = mGrade;
+        this.fGrade = fGrade;
+        this.pGrade = pGrade;
         this.overGrade = overGrade;
     }
 }

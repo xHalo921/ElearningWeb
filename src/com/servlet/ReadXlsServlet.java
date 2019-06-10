@@ -1,3 +1,5 @@
+//ReadXlsServlet
+
 package com.servlet;
 
 import java.io.File;
@@ -21,6 +23,11 @@ import org.apache.commons.fileupload.ProgressListener;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,17 +37,17 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UploadServlet
  */
-public class UploadServlet extends HttpServlet {
+public class ReadXlsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     // 定义允许上传的文件扩展名
-    private String Ext_Name = "gif,jpg,jpeg,png,bmp,swf,flv,mp3,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb,doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2";
+    private String Ext_Name = "xls";
 
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UploadServlet() {
+    public ReadXlsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,10 +55,11 @@ public class UploadServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         // TODO Auto-generated method stub
         // 得到上传文件的保存目录，将上传文件存放在WEB-INF目录下，不允许外界直接访问，保证上传文件的安全
-        String savePath = this.getServletContext().getRealPath("WEB-INF/upload");
+        String savePath = this.getServletContext().getRealPath("WEB-INF/xls");
         File saveFileDir = new File(savePath);
         if (!saveFileDir.exists()) {
             // 创建临时目录
@@ -59,12 +67,14 @@ public class UploadServlet extends HttpServlet {
         }
 
         // 上传时生成临时文件保存目录
-        String tmpPath = this.getServletContext().getRealPath("WEB-INF/tem");
+        String tmpPath = this.getServletContext().getRealPath("WEB-INF/xlstem");
         File tmpFile = new File(tmpPath);
         if (!tmpFile.exists()) {
             // 创建临时目录
             tmpFile.mkdirs();
         }
+
+        String saveFileName=null;
 
         // 消息提示
         String message = "";
@@ -144,7 +154,7 @@ public class UploadServlet extends HttpServlet {
 
 
                     // 得到存文件的文件名
-                    String saveFileName = makeFileName(fileName);
+                    saveFileName = makeFileName(fileName);
 
                     //保存文件方法一// 获取item中的上传文件的输入流
                     InputStream is = item.getInputStream();
@@ -181,12 +191,50 @@ public class UploadServlet extends HttpServlet {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } finally {
-            request.setAttribute("message", message);
-            request.getRequestDispatcher("/message.jsp").forward(request, response);
         }
+        finally {
 
-
+            File xlsFile = new File("E:\\repositories\\ElearningWeb\\out\\artifacts\\ElearningWeb_Web_exploded\\WEB-INF\\xls\\ba16abb7-4b25-42d2-9337-576510daef54_test.xls");
+            System.out.println(savePath + "\\" + saveFileName);
+            // 获得工作簿
+            Workbook workbook = null;
+            try {
+                workbook = WorkbookFactory.create(xlsFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("workbook ok");
+            // 获得工作表个数
+            int sheetCount = workbook.getNumberOfSheets();
+            // 遍历工作表
+            for (int i = 0; i < sheetCount; i++)
+            {
+                Sheet sheet = workbook.getSheetAt(i);
+                // 获得行数
+                int rows = sheet.getLastRowNum() + 1;
+                // 获得列数，先获得一行，在得到改行列数
+                System.out.println(rows);
+                Row tmp = sheet.getRow(0);
+                if (tmp == null)
+                {
+                    continue;
+                }
+                int cols = tmp.getPhysicalNumberOfCells();
+                // 读取数据
+                for (int row = 0; row < rows; row++)
+                {
+                    Row r = sheet.getRow(row);
+                    for (int col = 0; col < cols; col++)
+                    {
+                        //String s = r.getCell(col).getNumericCellValue();
+                        System.out.print(r.getCell(col).getNumericCellValue());
+                    }
+                    System.out.println();
+                }
+            }
+            //request.setAttribute("message", message);
+            response.sendRedirect("/main.jsp");
+        }
     }
 
 
@@ -210,3 +258,4 @@ public class UploadServlet extends HttpServlet {
 
 
 }
+

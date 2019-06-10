@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>SPM1</display-name>
+  <display-name>ElearningWeb</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>testechart.jsp</welcome-file>
+    <welcome-file>main.jsp</welcome-file>
+    <welcome-file>upload.jsp</welcome-file>
   </welcome-file-list>
+
   <servlet>
     <description></description>
     <display-name>UploadServlet</display-name>
@@ -19,6 +17,7 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/upload</url-pattern>
   </servlet-mapping>
+
   <servlet>
     <description></description>
     <display-name>ListFileServlet</display-name>
@@ -29,6 +28,7 @@
     <servlet-name>ListFileServlet</servlet-name>
     <url-pattern>/listFile</url-pattern>
   </servlet-mapping>
+
   <servlet>
     <description></description>
     <display-name>DownloadServlet</display-name>
@@ -39,4 +39,75 @@
     <servlet-name>DownloadServlet</servlet-name>
     <url-pattern>/servlet/DownloadServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <description>sign</description>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/com/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>Register</description>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/com/servlet/RegisterServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>ExitLogin</description>
+    <servlet-name>ExitLogin</servlet-name>
+    <servlet-class>com.servlet.ExitLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExitLogin</servlet-name>
+    <url-pattern>/com/servlet/ExitLogin</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>ElectiveServlet</description>
+    <servlet-name>ElectiveServlet</servlet-name>
+    <servlet-class>com.servlet.ElectiveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ElectiveServlet</servlet-name>
+    <url-pattern>/com/servlet/ElectiveServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>MessageBoard</description>
+    <servlet-name>MessageBoard</servlet-name>
+    <servlet-class>com.servlet.MessageBoard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MessageBoard</servlet-name>
+    <url-pattern>/com/servlet/MessageBoard</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>FindGraServlet</description>
+    <servlet-name>FindGraServlet</servlet-name>
+    <servlet-class>com.servlet.FindGraServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindGraServlet</servlet-name>
+    <url-pattern>/com/servlet/FindGraServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>ReadXlsServlet</description>
+    <servlet-name>ReadXlsServlet</servlet-name>
+    <servlet-class>com.servlet.ReadXlsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReadXlsServlet</servlet-name>
+    <url-pattern>/ReadXlsServlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>
