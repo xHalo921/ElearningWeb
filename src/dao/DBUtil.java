@@ -9,8 +9,8 @@ public class DBUtil {
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL ="jdbc:mysql://localhost:3306/album?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
 
-    private static final String USER = "user";
-    private static final String PASS = "123456";
+    private static final String USER = "root";
+    private static final String PASS = "";
     static {
         try {
             Class.forName(JDBC_DRIVER);
@@ -31,7 +31,7 @@ public class DBUtil {
             e.printStackTrace();
         }
     }
-    private static ResultSet exeSql(String sql){
+    public static ResultSet exeSql(String sql){
         ResultSet rs=null;
         try {
             Connection conn= getConn();

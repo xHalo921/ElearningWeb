@@ -8,7 +8,18 @@ public class Grade {
     private int pGrade;
     private int overGrade;
 
-    public int getsNo() {
+    public Grade(int id, String name, int ug, int mg,int fg, int pg, int og) {
+		// TODO Auto-generated constructor stub
+    	this.setsNo(id);
+    	this.setsName(name);
+    	this.setuGrade(ug);
+    	this.setmGrade(mg);
+    	this.setfGrade(fg);
+    	this.setpGrade(pg);
+    	this.setOverGrade(og);
+	}
+
+	public int getsNo() {
         return sNo;
     }
 
